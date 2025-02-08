@@ -1,0 +1,68 @@
+* {
+    margin: 0%;
+    padding: 0px;
+}
+
+.full-screen {
+    border: 2px solid black;
+    height: 600px;
+    width: 860px;
+    margin-left: 260px;
+    margin-top: 10px;
+    transition: all 1s ease;
+}
+
+.full-screen:hover {
+    transform: translateX(200px);
+    box-shadow: 3px 5px 5px grey;
+}
+
+header {
+    background-color: cadetblue;
+    margin-bottom: 5px;
+}
+
+h1 {
+    padding: 10px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.camera {
+    width: 100px;
+    height: 70px;
+
+    margin-left: 10px;
+    margin-bottom: 30px;
+}
+
+.modulo {
+    margin-left: 50px;
+}
+
+.multi-modulo {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 90px;
+
+}
+
+.ct {
+    margin-right: 100px;
+}
+
+.cable {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 90px;
+}
+
+.tv {
+    display: flex;
+    justify-content: flex-end;
+}
+
+footer {
+    background-color: cadetblue;
+    text-align: center;
+}
