@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body class="bg-gray-400 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-5xl font-serif font-bold text-center pb-5">Calculator</h1>
+        <div class="ml-10">
+            <label for="Number 1" class="text-gray-800 text-xl">Number</label>
+            <input class="border h-10 w-56 mb-5 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-xl"
+                type="text" id="num1">
+            <label for="Number 2" class="text-gray-800 text-xl">Number</label>
+            <input class="border focus:outline-none focus:ring-2 focus:ring-blue-500 h-10 w-56 rounded-xl" type="text"
+                id="num2">
+        </div>
+        <div class="flex justify-evenly text-white text-xl items-center mt-5">
+
+            <button class="border px-6 py-2 rounded-lg bg-blue-400 hover:bg-blue-500" onclick="add()">+</button>
+            <button class="border px-6 py-2 rounded-lg bg-blue-400 hover:bg-blue-500" onclick="sub()">-</button>
+            <button class="border px-6 py-2 rounded-lg bg-blue-400 hover:bg-blue-500" onclick="mul()">*</button>
+            <button class="border px-6 py-2 rounded-lg bg-blue-400 hover:bg-blue-500" onclick="div()">/</button>
+        </div>
+        <h1 id="result" class="text-5xl font-semibold text-center pt-5 text-black"></h1>
+    </div>
+    <script>
+        function add() {
+            let num1, num2, result;
+            num1 = document.getElementById("num1")
+            num2 = document.getElementById("num2")
+            result = document.getElementById("result")
+            result.innerHTML = parseInt(num1.value) + parseInt(num2.value)
+            num1.value = ''
+            num2.value = ''
+        }
+        function sub() {
+            let num1, num2, result;
+            num1 = document.getElementById("num1")
+            num2 = document.getElementById("num2")
+            result = document.getElementById("result")
+            result.innerHTML = parseInt(num1.value) - parseInt(num2.value)
+            num1.value = ''
+            num2.value = ''
+        } function mul() {
+            let num1, num2, result;
+            num1 = document.getElementById("num1")
+            num2 = document.getElementById("num2")
+            result = document.getElementById("result")
+            result.innerHTML = parseInt(num1.value) * parseInt(num2.value)
+            num1.value = ''
+            num2.value = ''
+        } function div() {
+            let num1, num2, result;
+            num1 = document.getElementById("num1")
+            num2 = document.getElementById("num2")
+            result = document.getElementById("result")
+            result.innerHTML = parseInt(num1.value) / parseInt(num2.value)
+            num1.value = ''
+            num2.value = ''
+        }
+    </script>
+</body>
+
+
+</html>

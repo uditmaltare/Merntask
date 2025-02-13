@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body>
+
+    <div class="min-h-screen  flex items-center justify-center bg-gray-100">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="username" class="block text-gray-700">Username</label>
+                    <input type="text" id="username"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required>
+                </div>
+                <div class="mb-6">
+                    <label for="password" class="block 
+                     text-gray-700">Password</label>
+                    <input type="password" id="password"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button onclick="login()" type="button"
+                        class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Login</button>
+
+                </div>
+            </form>
+            <h1 id="msg" class="text-3xl text-blue-600"></h1>
+        </div>
+    </div>
+    <script>
+        function login() {
+
+            let uname, pwd;
+            uname = document.getElementById("username").value
+            pwd = document.getElementById("password").value
+            msg = document.getElementById("msg")
+            if (uname == "") {
+                msg.innerHTML = "please enter username "
+                return
+            }
+            if (pwd == "") {
+                msg.innerHTML = "please enter password"
+
+            }
+            else if (uname == "udit maltare" && pwd == "2705") {
+                msg.innerHTML = "login successfull"
+            } else {
+                msg.innerHTML = "login failed"
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>
