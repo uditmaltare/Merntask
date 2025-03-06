@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gray-900 flex items-center  justify-center  min-h-screen">
+    <div class="bg-gray-800 flex flex-col justify-center items-center  p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-4xl text-white mb-4 font-bold">Add Question</h1>
+        <div class="space-y-4 text-white">
+            <input type="text" id="qns" placeholder="Enter question" class="w-full p-2 bg-gray-600  rounded-xl">
+            <input type="text" id="opt1" placeholder="Option 1" class="w-full p-2  bg-gray-600  rounded-xl">
+            <input type="text" id="opt2" placeholder="Option 2" class="w-full p-2  bg-gray-600  rounded-xl">
+            <input type="text" id="opt3" placeholder="Option 3" class="w-full p-2  bg-gray-600  rounded-xl">
+            <input type="text" id="opt4" placeholder="Option 4" class="w-full p-2  bg-gray-600  rounded-xl">
+            <input type="text" id="Ans" placeholder="Enter Answer" class="w-full p-2 bg-gray-600  rounded-xl">
+        </div>
+        <div class="mt-4 flex space-x-4">
+            <button onclick="Add()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add</button>
+            <button onclick="show()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Show</button>
+        </div>
+    </div>
+
+    <div id="show" class="mt-8"></div>
+    <script src="quez.js"></script>
+</body>
+
+</html>
+</div>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+
+</head>
+
+<body class="flex flex-col justify-center items-center min-h-screen bg-gray-900  ">
+
+    <div class="relative text-white bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full">
+        <h1
+            class="text-5xl font-bold text-center  text-white mb-6 transition duration-500 ease-in-out transform hover:scale-110">
+            Quiz
+        </h1>
+        <h1 class="text-2xl mb-4 shadow-md  ">Q.<span id="qno"></span> <span id="que"></span></h1>
+        <div class="">
+
+            <div class="bg-gray-600 p-3 hover:bg-gray-700 mt-4 rounded-2xl "> <input type="radio" onclick="check()"
+                    name="options" id="option1"> <span id="opt1"></span></div>
+
+            <div class="bg-gray-600 p-3 hover:bg-gray-700 mt-4 rounded-2xl "> <input type="radio" onclick="check()"
+                    name="options" id="option2"> <span id="opt2"></span></div>
+
+            <div class="bg-gray-600 p-3 hover:bg-gray-700 mt-4 rounded-2xl "> <input type="radio" onclick="check()"
+                    name="options" id="option3"> <span id="opt3"></span></div>
+
+            <div class="bg-gray-600 p-3 hover:bg-gray-700 mt-4 rounded-2xl "> <input type="radio" onclick="check()"
+                    name="options" id="option4"> <span id="opt4"></span></div>
+
+        </div>
+        <div class="flex justify-between">
+            <button id="pre" onclick="prev()"
+                class=" mt-4 bg-blue-500 px-4 py-2  hover:bg-blue-600 rounded-2xl">Prev</button>
+            <button class=" mt-4 bg-blue-500 px-4 py-2  hover:bg-blue-600 rounded-2xl" onclick="next()">Next</button>
+        </div>
+
+    </div>
+    <div class="mt-8 grid grid-cols-4 gap-4">
+
+    </div>
+    <script>
+        var listOfquestions = JSON.parse(localStorage.getItem("questions"));
+        var currentQuestion = 0;
+        var score = 0;
+        setquestion();
+        function setquestion() {
+            var question = listOfquestions[currentQuestion];
+            document.getElementById("qno").innerHTML = currentQuestion + 1;
+            document.getElementById("que").innerHTML = question.qns;
+            document.getElementById("opt1").innerHTML = question.opt1;
+            document.getElementById("opt2").innerHTML = question.opt2;
+            document.getElementById("opt3").innerHTML = question.opt3;
+            document.getElementById("opt4").innerHTML = question.opt4;
+            document.querySelectorAll('input[name="options"]').forEach((elem) => {
+                elem.checked = false;
+                document.getElementById("pre").style.display = currentQuestion === 0 ? "none" : "block";
+            });
+
+        }
+        function prev() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                setquestion();
+            }
+        }
+        function next() {
+            if (currentQuestion < listOfquestions.length - 1) {
+                currentQuestion++;
+                setquestion();
+            }
+            else {
+                document.body.innerHTML = "<h1 style='font-size: 24px; color: aliceblue;'>Your Score : " + score + "</h1>"
+                alert("No more question and your score is " + score);
+
+            }
+        }
+        function check() {
+            var radiobuttons = document.getElementsByName("options");
+            let option1 = document.getElementById("opt1").innerText;
+            let option2 = document.getElementById("opt2").innerText;
+            let option3 = document.getElementById("opt3").innerText;
+            let option4 = document.getElementById("opt4").innerText;
+            for (var i = 0; i < 4; i++) {
+                var radio = radiobuttons[i];
+                if (i == 0 && radio.checked) {
+                    if (listOfquestions[currentQuestion].ans == option1) {
+                        score++;
+                    }
+                }
+                else if (i == 1 && radio.checked) {
+                    if (listOfquestions[currentQuestion].ans == option2) {
+                        score++;
+                    }
+                }
+                else if (i == 2 && radio.checked) {
+                    if (listOfquestions[currentQuestion].ans == option3) {
+                        score++;
+                        
+                    }
+                }
+                else if (i == 3 && radio.checked) {
+                    if (listOfquestions[currentQuestion].ans == option4) {
+                        score++;
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+
+</html>
